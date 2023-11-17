@@ -24,3 +24,5 @@ npm install
 - delete private sg
 - delete public sg
 - release elastic ip (try from ec2)
+- delete dynamodb table
+- delete ec2 iam role
