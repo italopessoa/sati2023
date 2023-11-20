@@ -66,7 +66,7 @@ app.get('/public', async (req, res) => {
     console.log("sending response to external client");
   } catch (error) {
     console.error(error);
-    res.status(500).send("internal server is down");
+    res.status(500).send("internal server is down, ", error);
   }
 });
 
@@ -82,7 +82,7 @@ const getProducts = async () => {
     return response.Items;
   } catch (error) {
     console.error(error);
-    console.log("couldn't reach dynamodb");
+    console.log("couldn't reach dynamodb ", error);
     throw error;
   }
 }
