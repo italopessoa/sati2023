@@ -11,6 +11,7 @@ nvm install --lts
 git clone https://github.com/italopessoa/sati2023.git
 cd sati2023
 npm install
+node server.js
 ```
 
 # delete all resources
