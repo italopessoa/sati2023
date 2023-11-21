@@ -58,14 +58,10 @@ app.get('/public', async (req, res) => {
 
   try {
     console.log("calling instance on private subnet");
-    const internalResponse = await await axios.get({
-      timeout: 250,
-      method: "GET",
-      url: privateInstanceEndpoint
-    });
+    const internalResponse = await await axios.get(privateInstanceEndpoint);
     console.log("reponse received from instance on private subnet");
 
-    res.header("Content-Type", 'application/json');
+    res.header("Content-Type",'application/json');
     res.send(JSON.stringify({ publicResponse: internalResponse.data, date: new Date() }, null, 2));
     console.log("sending response to external client");
   } catch (error) {
@@ -98,7 +94,7 @@ app.get('/private', async (req, res) => {
     var products = await getProducts();
     console.log("reponse received from dynamodb");
 
-    res.header("Content-Type", 'application/json');
+    res.header("Content-Type",'application/json');
     res.send(JSON.stringify({ privateResponse: products, date: new Date() }, null, 2));
     console.log("sending response to client on public subnet");
   } catch (error) {
